@@ -198,7 +198,7 @@ class Synoptic(MayaQWidgetDockableMixin, QtWidgets.QDialog):
             pass
 
         rig_models = [item for item in pm.ls(transforms=True)
-                      if item.hasAttr("is_rig")]
+                      if pm.attributeQuery("is_rig", n=item.name(), ex=1)]
 
         self.model_list.clear()
         for item in rig_models:
